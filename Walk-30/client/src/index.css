@@ -1,0 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Outfit', sans-serif;
+
+  /* Fresh, energetic palette - Emerald/Teal focus */
+  --background: 150 30% 98%;
+  --foreground: 155 40% 15%;
+
+  --card: 0 0% 100%;
+  --card-foreground: 155 40% 15%;
+  --popover: 0 0% 100%;
+  --popover-foreground: 155 40% 15%;
+
+  --primary: 150 60% 45%; /* Vibrant Emerald */
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 150 30% 94%;
+  --secondary-foreground: 150 60% 35%;
+
+  --muted: 150 20% 96%;
+  --muted-foreground: 155 10% 50%;
+
+  --accent: 35 90% 60%; /* Energetic Orange for streaks/highlights */
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 84% 60%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 150 20% 90%;
+  --input: 150 20% 90%;
+  --ring: 150 60% 45%;
+
+  --radius: 1rem;
+}
+
+.dark {
+  --background: 155 40% 10%;
+  --foreground: 150 20% 90%;
+
+  --card: 155 40% 13%;
+  --card-foreground: 150 20% 90%;
+  --popover: 155 40% 13%;
+  --popover-foreground: 150 20% 90%;
+
+  --primary: 150 50% 50%;
+  --primary-foreground: 0 0% 100%;
+
+  --secondary: 155 30% 20%;
+  --secondary-foreground: 150 40% 80%;
+
+  --muted: 155 30% 20%;
+  --muted-foreground: 150 20% 60%;
+
+  --accent: 35 80% 60%;
+  --accent-foreground: 0 0% 100%;
+
+  --destructive: 0 62% 30%;
+  --destructive-foreground: 0 0% 98%;
+
+  --border: 155 30% 25%;
+  --input: 155 30% 25%;
+  --ring: 150 50% 50%;
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased selection:bg-primary/20 selection:text-primary;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-heading tracking-tight;
+  }
+}
+
+/* Custom Utilities for Polish */
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .glass-panel {
+    @apply bg-white/70 dark:bg-black/40 backdrop-blur-xl border border-white/20 shadow-xl;
+  }
+  
+  .card-hover {
+    @apply transition-all duration-300 hover:shadow-lg hover:-translate-y-1 hover:border-primary/20;
+  }
+
+  .animate-in {
+    animation: animate-in 0.5s ease-out forwards;
+  }
+  
+  .animate-delay-100 { animation-delay: 100ms; }
+  .animate-delay-200 { animation-delay: 200ms; }
+  .animate-delay-300 { animation-delay: 300ms; }
+}
+
+@keyframes animate-in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
